@@ -1,0 +1,28 @@
+contents:
+  repositories:
+    - https://dl-cdn.alpinelinux.org/alpine/edge/main
+    - https://dl-cdn.alpinelinux.org/alpine/edge/community
+  accounts:
+    users:
+      - uid: 1000
+        username: collectd
+    groups:
+      - gid: 1000
+        groupname: collectd
+    run-as: collectd
+
+  packages:
+    - collectd
+    - collectd-snmp
+    - collectd-rrdtool
+    - collectd-sensors
+    - collectd-network
+    - collectd-curl
+    - collectd-mqtt
+    - lm_sensors
+
+archs:
+  - x86_64
+
+cmd: |
+  /bin/ash -c "[ \"$COLLECTD_HOSTNAME\" == \"\" ] || echo \"Hostname \\\"$COLLECTD_HOSTNAME\\\"\" > /etc/collectd.d/hostname.conf; /usr/sbin/collectd -f"
