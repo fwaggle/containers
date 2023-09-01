@@ -17,6 +17,7 @@ contents:
     - collectd-rrdtool
     - collectd-sensors
     - collectd-network
+    - collectd-chrony
     - collectd-curl
     - collectd-mqtt
     - lm_sensors
